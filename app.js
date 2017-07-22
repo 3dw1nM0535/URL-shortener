@@ -3,6 +3,7 @@ var mongo = require('mongodb').MongoClient;
 var validUrl =  require('valid-url');
 var shortId = require('shortid');
 var dbUrl = 'mongodb://eml:eml2019@ds029824.mlab.com:29824/urls';
+
 var app = express();
 
 //Static files Middleware
@@ -42,8 +43,8 @@ app.get('/new/:url(*)', (req, res) => {
   }
 });
 
-app.get('/:value', (req, res) => {
-  var value = req.params.value;
+app.get('/:id', (req, res) => {
+  var id = req.params.value;
   mongo.connect(dbUrl, (err, db) => {
     if (err) {
       return console.log(err);
