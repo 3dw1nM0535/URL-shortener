@@ -30,6 +30,7 @@ app.get('/new/:url(*)', (req, res) => {
             originalUrl: url,
             shortUrl: 'http://' + req.headers['host'] + '/' + short,
           }
+          //close db if connection complete
           db.close();
           res.send(data);
         });
@@ -54,7 +55,13 @@ app.get('/:id', (req, res) => {
         if(err) {
           res.send("Please check you input for mistakes!");
         } else {
-          console.log(docs.length);
+          if (docs.length > 0) {
+            db.close();
+            res.redirect(docs[0].url);
+          } else {
+            db.close();
+            res.send("There is a problem with the db connection! Please try later!");
+          }
         }
       });
     }
