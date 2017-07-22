@@ -2,8 +2,11 @@ var express = require('express');
 
 var app = express();
 
+//Static files Middleware
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
-  res.send("Hello world!");
+  res.sendFile(__dirname + "index.html");
 });
 
 app.listen(3000, '127.0.0.1', () => {
