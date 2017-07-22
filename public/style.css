@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.cover {
+  background-color: crimson ! important;
+  color: #fff;
+  font-family: 'Ubuntu', Georgia;
+}
