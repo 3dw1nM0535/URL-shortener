@@ -2,8 +2,7 @@ var express = require('express');
 var mongo = require('mongodb').MongoClient;
 var validUrl =  require('valid-url');
 var shortId = require('shortid');
-var port = process.env.PORT || 3000;
-var dbUrl = "mongodb://url-shorter:@03167TuK2014@ds031597.mlab.com:31597/url-shortener";
+var dbUrl = "mongodb://url-shorterg:@03167TuK2014@ds031597.mlab.com:31597/url-shortener";
 
 var app = express();
 
@@ -22,6 +21,7 @@ app.get('/new/:url(*)', (req, res) => {
         res.send("Connection to the database was lost! Please try later");
         return console.log(err);
       } else {
+        console.log("Connection alive");
         var urlList = db.collection('urls');
         var short = shortId.generate();
         urlList.insert({url: url, short: short}, () => {
@@ -48,11 +48,18 @@ app.get('/:value', (req, res) => {
     if (err) {
       return console.log(err);
     } else {
-      
+      var urlList = db.collection('url');
+      urlList.find({short: id}).toArray((err, docs) => {
+        if(err) {
+          res.send("Please check you input for mistakes!");
+        } else {
+          console.log(docs.length);
+        }
+      });
     }
   });
 });
 
-app.listen(port, '127.0.0.1', () => {
+app.listen(3000, '127.0.0.1', () => {
   console.log("Server listening on port 3000!");
 });
