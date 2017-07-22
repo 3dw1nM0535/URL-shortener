@@ -1,0 +1,5 @@
+/.vscode
+/node_modules
+/build
+npm-debug.log*
+package.json
