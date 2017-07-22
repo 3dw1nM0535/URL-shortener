@@ -2,8 +2,7 @@ var express = require('express');
 var mongo = require('mongodb').MongoClient;
 var validUrl =  require('valid-url');
 var shortId = require('shortid');
-var dbUrl = 'mongodb://edwin:lomolo@ds029824.mlab.com:29824/urls'
-
+var dbUrl = 'mongodb://eml:eml2019@ds029824.mlab.com:29824/urls';
 var app = express();
 
 //Static files Middleware
