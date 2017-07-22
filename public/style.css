@@ -4,8 +4,12 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+h1 {
+  font-size: 5rem ! important;
+}
+
 .cover {
-  background-color: crimson ! important;
+  background-color: forestgreen ! important;
   color: #fff;
   font-family: 'Ubuntu', Georgia;
 }
