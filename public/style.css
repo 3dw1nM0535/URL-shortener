@@ -13,3 +13,11 @@ h1 {
   color: #fff;
   font-family: 'Ubuntu', Georgia;
 }
+
+ol {
+  margin-left: 5rem;
+}
+
+li {
+  padding: 0.50rem;
+}
