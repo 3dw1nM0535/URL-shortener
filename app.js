@@ -45,7 +45,7 @@ app.get('/new/:url(*)', (req, res) => {
 });
 
 app.get('/:id', (req, res) => {
-  var id = req.params.value;
+  var id = req.params.id;
   mongo.connect(dbUrl, (err, db) => {
     if (err) {
       return console.log(err);
@@ -53,7 +53,7 @@ app.get('/:id', (req, res) => {
       var urlList = db.collection('url-shortener');
       urlList.find({short: id}).toArray((err, docs) => {
         if(err) {
-          res.send("Please check you input for mistakes!");
+          res.send("Please check your input for mistakes!");
         } else {
           if (docs.length > 0) {
             db.close();
